@@ -6,7 +6,7 @@ The app runs on django backend with react front end for displaying a list of pho
 
 
 <h5>Docker-compose</h4>
- If using docker compose just run <code>docker-compose up</code> to run the app. It will be running on
+ If using docker compose just run <code>docker-compose up</code> to run the app. It will be running on<br>
  <link>http://localhost:8000</link>
 
 <br>
@@ -21,7 +21,8 @@ here the ports need to be mapped so use
 <br>
 <br>
 <code>docker run -t -p 8000:8000 thedoodler/qure_assignment:latest</code>
-
+<br>
+<br>
 after pulling the image from hub.
 <br>
 <br>
@@ -35,5 +36,7 @@ to just run the application without dependancies, get into the project folder an
 <br>
 
 <h3>Signup</h3>
-signup with valid username and password to see the phone number list.
-If you have already signed up just login
+
+The app will be running on <link>localhost:8000</link>
+
+signup with valid username and password or login to see the phone number list.
