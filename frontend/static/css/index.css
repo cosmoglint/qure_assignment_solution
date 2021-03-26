@@ -42,7 +42,7 @@ body {
 
 .search {
   width: 100%;
-  padding-top: 100px;
+  padding-top: 200px;
   padding-bottom: 50px;
 }
 
@@ -59,21 +59,23 @@ body {
   width: 100%;
   text-align: center;
   display: inline-block;
+  margin: 10px;
 }
+
 
 .personname {
   float: left;
-  width: 50%;
+  width: 40%;
 }
 
 .personnumber {
   float: right;
-  width: 50%;
+  width: 40%;
 }
 
 .logout {
   font-size: 0.6em;
   position: fixed;
-  bottom: 30px;
-  left: 30px;
+  right: 30px;
+  top: 30px;
 }

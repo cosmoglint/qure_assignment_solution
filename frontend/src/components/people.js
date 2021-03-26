@@ -15,6 +15,7 @@ export default class People extends Component {
   constructor(props){
     super(props);
     this.state ={
+      username :"",
       people : [],
       search_list : [],
       search_term : '',
@@ -41,36 +42,48 @@ export default class People extends Component {
         search_list: my_list
       })
       // console.log(data);
-      console.log(this.state.search_list);
+      // console.log(this.state.search_list);
+    })
+
+    fetch('/user/').then((response) => response.json()).then((data) => {
+      this.setState({
+        username : data.username
+      })
     })
   }
 
-  update_search(){
-    let searched_list = this.state.people.filter(person => (person.name).toLowerCase().includes(this.state.search_term.toLowerCase()))
+  update_search(term){
+    let searched_list = this.state.people.filter(person => (person.name).toLowerCase().includes(term.toLowerCase()))
     this.setState({
       search_list: searched_list
-    })
-    console.log(this.state.search_list);
+    });
+    // console.log(this.state.search_list);
+    // console.log(this.state.search_term);
   }
 
   searcher = (e) => {
-    console.log(e.target.value);
     this.setState({
       search_term: e.target.value
     })
-    this.update_search();
+    this.update_search(e.target.value);
   }
 
 
   render(){
     return(
       <div className="People">
-        <SearchBar value={this.state.searchterm} onChange={this.searcher} placeholder="search me"/>
-        <div>
+        <div className='search'>
+          <input value={this.state.search_term}  placeholder='Search' onChange={this.searcher} placeholder="search here"/>
+        </div>
+        <div className="single_person">
           <ul>
             {this.renderPerson([{ id:0, name:"Usernames", phone_number:"Phone Numbers"}])}
             {this.renderPerson(this.state.search_list)}
           </ul>
+        </div>
+        <div className="logout">
+          <p>Hi {this.state.username}</p>
+          <button><a href='/accounts/logout'>Logout?</a></button>
         </div>
       </div>
     )
